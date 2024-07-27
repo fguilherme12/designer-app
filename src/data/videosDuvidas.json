@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "path": "videos/Brow.mp4",
+        "titulo": "Técnica de Brow Lumination",
+        "descricao": "Essa técnica foi feita pra vc",
+        "alt": "Video Brow"
+    },
+    
+    {
+        "id": 2,
+        "path": "videos/designPersonalizado.mp4",
+        "titulo": "Como funciona a técnica de Design Personalizado?",
+        "descricao": "No vídeo, eu mostro um pouco de como funciona o design personalizado no meu estudio.",
+        "alt": "Video Design Personalizado"
+    },
+
+    {
+        "id": 3,
+        "path": "videos/Lash.mp4",
+        "titulo": "Técnica de Lash",
+        "descricao": "Essa técnica foi feita pra vc e pra mim e pra todos",
+        "alt": "Video Lash"
+    }
+]
