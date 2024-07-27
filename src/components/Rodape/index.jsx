@@ -9,11 +9,10 @@ const RodapeEstilizado = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    bottom: 0;
     width: 100%;
     background-color: #E6BFB8;
-    height: 130px;
+    height: 6rem;
+    bottom: 0;
   
 `
 
@@ -22,18 +21,35 @@ const ListaEstilizada = styled.ul`
 
     li{
         display: inline-block;
-        margin-right: 32px;
+        margin-right: 2rem;
+
+        @media(max-width: 1000px) {
+            margin-right: 1rem;
+        };
     }
 `
 
 const RodapeTexto = styled.p`
     display: flex;
     align-items: center;
-    font-size: 25px;
+    font-size: 1rem;
     color: white;
 
     svg {
-        padding-right: 5px;
+        padding-right: 0.3rem;
+    }
+    
+    @media(max-width: 1000px) {
+        font-size: 0.8rem;
+    }
+`
+
+const RodapeTextoEndereco = styled.p`
+    font-size: 1rem;
+    color: white;
+
+    @media(max-width: 1000px) {
+        display: none;
     }
 `
 
@@ -43,17 +59,17 @@ function Rodape() {
             <ListaEstilizada>
                 <li>
                     <a href=""></a>
-                    <FaTiktok size={'35'} color="#fff"/>
+                    <FaTiktok size={'1.5rem'} color="#fff"/>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/designer.vanessaximenes" target="_blank"> <FaInstagram size={'35'} color="#fff"/></a>   
+                    <a href="https://www.instagram.com/designer.vanessaximenes" target="_blank"> <FaInstagram size={'1.5rem'} color="#fff"/></a>   
                 </li>
                 <li>
-                    <a href="https://api.whatsapp.com/send/?phone=5561999789469&text&type=phone_number&app_absent=0" target="_blank"> <FaWhatsapp size={'35'} color="#fff"/></a>  
+                    <a href="https://api.whatsapp.com/send/?phone=5561999789469&text&type=phone_number&app_absent=0" target="_blank"> <FaWhatsapp size={'1.5rem'} color="#fff"/></a>  
                 </li>
             </ListaEstilizada>
             <RodapeTexto> <FaRegistered /> Desenvolvido por FGVX Coder. </RodapeTexto>
-            <RodapeTexto>Texto a ser decidido. </RodapeTexto>
+            <RodapeTextoEndereco> Texto a ser decidido. </RodapeTextoEndereco>
         </RodapeEstilizado>
     )
     

@@ -16,14 +16,24 @@ const Figcaption = styled.figcaption`
         border-radius: 0px 0px 20px 20px;
         color: white;
         box-sizing: border-box;
-        padding: 20px;
-        font-size: 20px;
+        padding: 1rem;
+        font-size: 1.2rem;
+
+        @media(max-width: 1000px) {
+            font-size: 0.8rem;
+    };
 `
 
 const ImagemEstilizada = styled.img`
-    width: 350px;
+    width: 22rem;
     border-radius: 20px 20px 0 0;
-    height: 500px;
+    height: 28rem;
+
+    @media(max-width: 1000px) {
+        width: 15rem;
+        border-radius: 10px 10px 0 0;
+        height: 20rem;
+    };
 `
 
 // eslint-disable-next-line react/prop-types
@@ -33,7 +43,7 @@ function Imagem({imagem, titulo, to}) {
             <ImagemEstilizada src={imagem} />
             <Figcaption>
                 {titulo}
-                <Link to={to}><IoEnter size={'40px'} color="white" /></Link>
+                <Link to={to}><IoEnter size={'2rem'} color="white" /></Link>
             </Figcaption>
         </Figure>
     )

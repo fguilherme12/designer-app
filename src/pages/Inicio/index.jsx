@@ -32,10 +32,12 @@ const MainContainer = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 55rem;
+    flex-wrap: wrap;
+    min-height: 55rem;
     background-color: #fff;
     width: 100%;
     margin-top: 3rem;
+    flex-grow: 1;
 `
 
 const Titulo = styled.h1`
@@ -43,6 +45,11 @@ const Titulo = styled.h1`
     color: #993F48;
     font-size: 3rem;
     margin-top: 5rem;
+
+    @media(max-width: 1000px) {
+        font-size: 1.8rem;
+        margin-top: 1rem;
+    }
 `
 
 function Inicio() {

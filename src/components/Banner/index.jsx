@@ -4,6 +4,7 @@ import {Navigation, Autoplay } from "swiper/modules";
 
 const Container = styled.div`
     display: flex;
+    align-items: center;
     justify-content: center;
     margin: 2rem auto;
     background-color: #fad9d33b;
@@ -14,14 +15,6 @@ const Imagem = styled.img`
     background-repeat: no-repeat;
     object-fit: contain;
     height: 40rem;
-`
-
-const StyledSwiperSlide = styled(SwiperSlide)`
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    margin: 3rem;
 `
 
 
@@ -42,7 +35,7 @@ function Banner() {
                 
             >
                 {data.map((item) => (
-                    <StyledSwiperSlide key={item.id}> <Imagem src={item.imagem} /> </StyledSwiperSlide>
+                    <SwiperSlide key={item.id}> <Imagem src={item.imagem} /> </SwiperSlide>
                 ))}
                 
             </Swiper>
