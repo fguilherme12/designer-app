@@ -15,6 +15,10 @@ const Imagem = styled.img`
     background-repeat: no-repeat;
     object-fit: contain;
     height: 40rem;
+
+    @media(max-width: 1000px) {
+    height: 28rem;
+    }
 `
 
 

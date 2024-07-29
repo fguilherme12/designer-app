@@ -4,7 +4,7 @@ import LinkEstilizado from "../LinkEstilizado";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { IoMenu } from "react-icons/io5";
+import { IoMenu, IoCloseCircle } from "react-icons/io5";
 
 const HeaderEstilizado = styled.header`
     display: flex;
@@ -18,6 +18,10 @@ const HeaderEstilizado = styled.header`
 const Logo = styled.img`
     width: 12rem;
     cursor: pointer;
+
+    @media(max-width: 1000px) {
+        width: 9rem;
+    }
 `
 
 const NavEstilizada = styled.nav`
@@ -39,14 +43,15 @@ const NavEstilizada = styled.nav`
         justify-content: center;
         align-items: center;
         list-style: none;
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 0.8rem;
-        font-size: 0.5rem;
+        font-size: 0.8rem;
         margin: 0;
         background-color: #720913a0;;
         color: white;
         position: absolute;
-        top: 30px;
+        z-index: 1000;
+        top: 1.6rem;
         right: 4rem;
         border-radius: 8px;
         overflow: hidden;
@@ -69,9 +74,9 @@ const Dropdown = styled.ul`
 
     @media(max-width: 1000px) {
         align-items: center;
-        font-size: 0.5rem;
+        font-size: 0.8rem;
         padding: 0.7rem;
-        gap: 0.8rem;
+        gap: 1rem;
         position: relative;
     }
 
@@ -92,12 +97,17 @@ const Hamburger = styled.div`
     }
 `;
 
+const BotaoFechar = styled(IoCloseCircle)`
+    position: absolute;
+    top: 0.2rem;
+    right: 0.01rem;
+`
+
 
 
 function Cabecalho() {
 
     const [openDropdown, setOpenDropdown] = useState(false)
-
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -126,6 +136,7 @@ function Cabecalho() {
                             <LinkEstilizado to={'brow'}>Brow Lamination </LinkEstilizado>
                         </Dropdown>}   
                     </a>
+                    {isOpen && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
                 </NavEstilizada>
 
         </HeaderEstilizado>
