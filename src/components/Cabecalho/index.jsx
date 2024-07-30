@@ -136,9 +136,9 @@ function Cabecalho() {
                     <LinkEstilizado to={'/duvidas'} onClick={toggleMenu}>Dúvidas </LinkEstilizado>
                     <LinkEstilizado onClick={toggleDropdown}> Procedimentos <TiArrowSortedDown />
                         {openDropdown && <Dropdown onMouseLeave={toggleDropdown}>
-                            <LinkEstilizado to={'sobrancelhas'}>Sobrancelhas</LinkEstilizado>
-                            <LinkEstilizado to={'lash'}>Lash Lifting</LinkEstilizado>
-                            <LinkEstilizado to={'brow'}>Brow Lamination </LinkEstilizado>
+                            <LinkEstilizado to={'sobrancelhas'} onClick={toggleMenu}>Sobrancelhas</LinkEstilizado>
+                            <LinkEstilizado to={'lash'} onClick={toggleMenu}>Lash Lifting</LinkEstilizado>
+                            <LinkEstilizado to={'brow'} onClick={toggleMenu}>Brow Lamination </LinkEstilizado>
                         </Dropdown>}   
                     </LinkEstilizado>
                     {isOpen && <BotaoFechar size={'25px'} onClick={toggleMenu} />}

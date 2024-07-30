@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import ContainerImagem from '../../../components/ContainerImagem'
 import fotos from '../../../data/lash.json';
+import Titulo from '../../../components/Titulo';
 
 const MainContainer = styled.div`
     display: flex;
@@ -10,13 +11,10 @@ const MainContainer = styled.div`
     margin: 2em 20em;
     gap: 30px;
     flex-wrap: wrap;
-`
 
-const Titulo = styled.h1`
-    text-align: center;
-    color: pink;
-    font-size: 70px;
-    margin: 100px;
+    @media(max-width: 1100px) {
+        margin: 1em 0;
+    }
 `
 
 function Lash() {

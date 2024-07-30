@@ -6,30 +6,42 @@ import { FaExpandAlt} from "react-icons/fa";
 import { useCurtidasContext } from "../../context/FotosCurtidas";
 import { useFotoExpandida } from "../../context/FotoExpandida";
 
+
 const ImagemEstilizada = styled.img`
-    width: 400px;
+    width: 17rem;
     border-radius: 20px 20px 0 0;
-    height: 500px;
+    height: 21rem;
     object-fit: cover;
+
+    @media(max-width: 1000px) {
+        width: 13rem;
+        height: 18rem;
+    }
 `
 
 
 const FigCaption = styled.figcaption`
     display: flex;
-    gap: 10px;
-    max-width: 400px;
+    gap: 0.7rem;
+    max-width: 17rem;
     justify-content: space-between;
     background-color: #d15b67;
     border-radius: 0px 0px 20px 20px;
     color: white;
     box-sizing: border-box;
     padding: 20px;
-    font-size: 1rem;
+    font-size: 0.7rem;
+
+    @media(max-width: 1000px) {
+        max-width: 13rem;
+        font-size: 0.5rem;
+    }
+
 `
 
 const Icones = styled.div`
     display: flex;
-    gap: 10px;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
@@ -47,8 +59,8 @@ function ContainerImagem({id, titulo, path, alt}) {
                 <FigCaption>
                     {titulo}
                     <Icones>
-                        {!ehFavorito ? <IoHeartOutline onClick={() => jaCurtiu({id,titulo,path,alt})} size={'33px'} /> : <IoHeartSharp onClick={() => jaCurtiu({id,titulo,path,alt})} size={'33px'}/>}
-                        <FaExpandAlt onClick={() => expandirFoto(path) } size={'30px'}  />
+                        {!ehFavorito ? <IoHeartOutline onClick={() => jaCurtiu({id,titulo,path,alt})} size={'1.5rem'} /> : <IoHeartSharp onClick={() => jaCurtiu({id,titulo,path,alt})} size={'1.5rem'}/>}
+                        <FaExpandAlt onClick={() => expandirFoto(path) } size={'1.5rem'}  />
                     </Icones>
                 </FigCaption>
             </figure>

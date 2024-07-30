@@ -37,8 +37,12 @@ const MainContainer = styled.div`
     min-height: 55rem;
     background-color: #fff;
     width: 100%;
-    margin-top: 3rem;
+    margin: 5rem 0rem;
     flex-grow: 1;
+
+    @media(max-width:750px) {
+        
+    }
 `
 
 function Inicio() {

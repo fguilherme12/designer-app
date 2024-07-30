@@ -1,46 +1,67 @@
 import styled from "styled-components";
 import video from "../../data/videosDuvidas.json";
 import { BsFillQuestionSquareFill } from "react-icons/bs";
+import Titulo from "../../components/Titulo";
 
 const MainContainer = styled.div`
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
     width: 100%;
-    padding: 5em;
-`
-const TituloPrincipal = styled.h1`
-    color: pink;
-    align-items: center;
-    font-size: 5em;
-    margin-top: 5px;
+    padding: 1em;
 `
 
-const Titulo = styled.h1`
+const TituloSecundario = styled.h1`
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    color: pink;
-    font-size: 3em;
+    color: #c5515d;
+    font-size: 1.8rem;
+
+    @media(max-width: 1000px) { 
+        font-size: 1rem;
+    }
 `
 
 const Paragrafo = styled.p`
-    font-size: 2em;
+    font-size: 1.2rem;
     text-align: center;
+
+    @media(max-width: 1000px) { 
+        font-size: 0.9rem;
+    }
+
+`
+
+const Section = styled.section`
+    text-align: center;
+    margin-bottom: 4rem;
+`
+
+const Video = styled.video`
+    height:30rem; 
+    width:20rem;
+
+    @media(max-width: 1000px) { 
+        height:20rem; 
+        width:17rem;
+    }
 `
 
 function Duvidas() { 
     return (
         <MainContainer>
-            <TituloPrincipal> Principais Duvidas </TituloPrincipal>
+            <Titulo> Principais Duvidas </Titulo>
             {video.map((video) => 
-                <section key={video.id}>
-                    <Titulo> <BsFillQuestionSquareFill /> {video.titulo} </Titulo>
+                <Section key={video.id}>
+                    <TituloSecundario> <BsFillQuestionSquareFill /> {video.titulo} </TituloSecundario>
                     <Paragrafo>{video.descricao}</Paragrafo>
-                    <video  src={video.path} controls height={'800px'} width={'100%'}/>
-                </section>
+                    <Video  src={video.path} controls />
+                </Section>
             )}
         </MainContainer>
     )

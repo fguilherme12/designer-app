@@ -1,22 +1,21 @@
 import styled from 'styled-components';
 import ContainerImagem from '../../../components/ContainerImagem'
 import fotosSobrancelha from '../../../data/sobrancelhas.json';
+import Titulo from '../../../components/Titulo';
 
 const MainContainer = styled.div`
     display: flex;
+    box-sizing: border-box;
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
-    margin: 2em 20em;
-    gap: 30px;
+    margin: 2em 10em;
+    gap: 2rem;
     flex-wrap: wrap;
-`
 
-const Titulo = styled.h1`
-    text-align: center;
-    color: pink;
-    font-size: 70px;
-    margin: 100px;
+    @media(max-width: 1100px) {
+        margin: 1em 0;
+    }
 `
 
 function Sobrancelha() {

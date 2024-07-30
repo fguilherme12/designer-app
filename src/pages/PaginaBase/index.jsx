@@ -20,7 +20,7 @@ function PaginaBase() {
             <ExpandidaProvider>
             <CurtidasProvider>
               <Outlet/>
-            <FotoExpandida/>
+              <FotoExpandida/>
             </CurtidasProvider>      
             </ExpandidaProvider>
             <Rodape/>
