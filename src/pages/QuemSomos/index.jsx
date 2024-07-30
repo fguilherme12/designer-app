@@ -1,64 +1,54 @@
 import styled from "styled-components";
+import Titulo from "../../components/Titulo";
 
 const MainContainer = styled.div`
     display: flex;
+    justify-content: space-between;
+    gap: 8rem;
     flex-direction: column;
     background-color: #fff;
-    padding: 2em 10em;
+    padding: 2rem 18rem;
+    margin-bottom: 10rem;
+
+    @media(max-width: 1000px) {
+        padding: 2rem 3rem;
+    }
 `
 
 const Container = styled.div`
-    height: 40em;
+    margin-bottom: 5rem;
 `
 
-const Imagem = styled.img`
-    right: 15em;
-    top: 12em;
-    position: absolute;
-`
-
-const ImagemSecundaria = styled.img`
-    left: 15em;
-    top: 48em;
-    position: absolute;
-    border-radius: 10px;
-    width: 35em;
-`
-
-const Titulo = styled.h1`
-    text-align: center;
-    color: pink;
-    font-size: 5em;
-    margin-top: 1em;
-`
 const Paragrafo = styled.p`
-    font-size: 2em;
+    font-size: 1.3rem;
     text-align: center;
+
+    @media(max-width: 1000px) {
+        font-size: 1rem;
+    }
 `
 
 function QuemSomos() { 
     return (
         <MainContainer> 
             <Container>
-                <Titulo> Minha História </Titulo>
-                <Paragrafo> Eu sou vanessa ximenes e sou designer de sobrancelhas. <br/>
-                    Eu amo o que eu faço e meu estudio fica localizado na samambaia, <br/>
-                    Tem mais de um ano que iniciei esse sonho, e que hoje é o meu trabalho. <br/>
-                </Paragrafo>
-                <Imagem src="imagens/Foto.png" />
+                  <Titulo> Minha História </Titulo>
+                    <Paragrafo> Eu sou vanessa ximenes e sou designer de sobrancelhas. <br/>
+                        Eu amo o que eu faço e meu estudio fica localizado na samambaia, <br/>
+                        Tem mais de um ano que iniciei esse sonho, e que hoje é o meu trabalho. <br/>
+                    </Paragrafo>
             </Container>
 
             <Container>
-                <Titulo> Qual minha missão? </Titulo>
-                <Paragrafo> Eu ajudo a trazer a naturalidade nos procedimentos. <br/>
-                Já transformei mais de duzentos olhares e não quero parar por aqui. <br/>
-                </Paragrafo>
-                <ImagemSecundaria src="imagens/Foto2.png" />
+                    <Titulo> Qual minha missão? </Titulo>
+                    <Paragrafo> Eu ajudo a trazer a naturalidade nos procedimentos. <br/>
+                    Já transformei mais de duzentos olhares e não quero parar por aqui. <br/>
+                    </Paragrafo>
             </Container>
 
             <Container>
-                <Titulo> E você vai perder a chance de ficar mais linda? </Titulo>
-                <Paragrafo> Agende seu horário, pelo instagram ou Whatsapp </Paragrafo>
+                    <Titulo> E você vai perder a chance de ficar mais linda? </Titulo>
+                    <Paragrafo> Agende seu horário, pelo instagram ou Whatsapp </Paragrafo>
             </Container>
 
 

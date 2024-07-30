@@ -37,22 +37,21 @@ const NavEstilizada = styled.nav`
         white-space: nowrap;
     }
 
-    @media(max-width: 1000px) {
+    @media(max-width: 750px) {
         display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
         flex-direction: column;
         justify-content: center;
         align-items: center;
         list-style: none;
         gap: 1.5rem;
-        padding: 0.8rem;
-        font-size: 0.8rem;
-        margin: 0;
-        background-color: #720913a0;;
+        padding: 1.6rem;
+        font-size: 1rem;
+        background-color: #5a1a20;;
         color: white;
         position: absolute;
         z-index: 1000;
-        top: 1.6rem;
-        right: 4rem;
+        top: 1rem;
+        right: 1.1rem;
         border-radius: 8px;
         overflow: hidden;
     };
@@ -72,12 +71,13 @@ const Dropdown = styled.ul`
     font-size: 1rem;
     z-index: 20;
 
-    @media(max-width: 1000px) {
+    @media(max-width: 750px) {
         align-items: center;
-        font-size: 0.8rem;
-        padding: 0.7rem;
+        font-size: 1rem;
+        padding: 0.8rem;
         gap: 1rem;
         position: relative;
+        background-color:#993f48;
     }
 
 `
@@ -86,7 +86,7 @@ const Hamburger = styled.div`
 
     display: none;
   
-    @media(max-width: 1000px) {
+    @media(max-width: 750px) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -101,6 +101,11 @@ const BotaoFechar = styled(IoCloseCircle)`
     position: absolute;
     top: 0.2rem;
     right: 0.01rem;
+    cursor: pointer;
+
+    @media(min-width: 750px) {
+        display: none;
+    }
 `
 
 
@@ -126,16 +131,16 @@ function Cabecalho() {
                 <IoMenu size={'80px'} onClick={toggleMenu} isOpen={isOpen} cursor={'pointer'} color='white'/>
              </Hamburger>
                 <NavEstilizada isOpen={isOpen}>
-                    <LinkEstilizado to={'/'}> Inicio </LinkEstilizado>
-                    <LinkEstilizado to={'/quem-somos'}>Quem Somos</LinkEstilizado>
-                    <LinkEstilizado to={'/duvidas'}>Dúvidas </LinkEstilizado>
-                    <a onClick={toggleDropdown}> Procedimentos <TiArrowSortedDown />
+                    <LinkEstilizado to={'/'} onClick={toggleMenu}> Inicio </LinkEstilizado>
+                    <LinkEstilizado to={'/quem-somos'} onClick={toggleMenu}>Quem Somos</LinkEstilizado>
+                    <LinkEstilizado to={'/duvidas'} onClick={toggleMenu}>Dúvidas </LinkEstilizado>
+                    <LinkEstilizado onClick={toggleDropdown}> Procedimentos <TiArrowSortedDown />
                         {openDropdown && <Dropdown onMouseLeave={toggleDropdown}>
                             <LinkEstilizado to={'sobrancelhas'}>Sobrancelhas</LinkEstilizado>
                             <LinkEstilizado to={'lash'}>Lash Lifting</LinkEstilizado>
                             <LinkEstilizado to={'brow'}>Brow Lamination </LinkEstilizado>
                         </Dropdown>}   
-                    </a>
+                    </LinkEstilizado>
                     {isOpen && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
                 </NavEstilizada>
 

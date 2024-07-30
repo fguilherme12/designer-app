@@ -1,6 +1,7 @@
-import styled from "styled-components"
-import Imagem from "./Imagem"
-import Banner from "../../components/Banner/index"
+import styled from "styled-components";
+import Imagem from "./Imagem";
+import Banner from "../../components/Banner/index";
+import Titulo from "../../components/Titulo";
 
 const fotos = [
     {
@@ -38,18 +39,6 @@ const MainContainer = styled.div`
     width: 100%;
     margin-top: 3rem;
     flex-grow: 1;
-`
-
-const Titulo = styled.h1`
-    text-align: center;
-    color: #993F48;
-    font-size: 3rem;
-    margin-top: 5rem;
-
-    @media(max-width: 1000px) {
-        font-size: 1.8rem;
-        margin-top: 1rem;
-    }
 `
 
 function Inicio() {
