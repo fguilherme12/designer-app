@@ -8,8 +8,8 @@ const MainContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
-    margin: 2em 20em;
-    gap: 30px;
+    margin: 2em 10em;
+    gap: 2rem;
     flex-wrap: wrap;
 
     @media(max-width: 1100px) {

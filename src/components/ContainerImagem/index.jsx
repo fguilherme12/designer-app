@@ -33,6 +33,7 @@ const FigCaption = styled.figcaption`
     font-size: 0.7rem;
 
     @media(max-width: 1000px) {
+
         max-width: 13rem;
         font-size: 0.5rem;
     }

@@ -8,7 +8,7 @@ FotosCurtidasContext.displayName= "Curtidas" ;
 export default function CurtidasProvider({children}) {
 
     const [curtidas,setCurtidas] = useState([])
-    
+
     return (
         <FotosCurtidasContext.Provider value={{curtidas,setCurtidas}}>
             {children}
@@ -34,10 +34,10 @@ export function useCurtidasContext() {
         return setCurtidas(listaCurtidas)
     }
 
+
     return {
         
         curtidas,
-        jaCurtiu
-        
+        jaCurtiu,
     }
 }
