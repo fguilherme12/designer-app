@@ -3,7 +3,7 @@
         "id": 1,
         "path": "videos/Brow.mp4",
         "titulo": "Técnica de Brow Lumination",
-        "descricao": "Essa técnica foi feita pra vc",
+        "descricao": "O brow lamination, é uma técnica de design de sobrancelhas que usa produtos químicos para deixar os fios alinhados e volumosos, com um acabamento laminado.",
         "alt": "Video Brow"
     },
     
@@ -18,8 +18,8 @@
     {
         "id": 3,
         "path": "videos/Lash.mp4",
-        "titulo": "Técnica de Lash",
-        "descricao": "Essa técnica foi feita pra vc e pra mim e pra todos",
+        "titulo": "Técnica de Lash Lifting",
+        "descricao": "Antes e depois do Lash Lifting.",
         "alt": "Video Lash"
     }
 ]

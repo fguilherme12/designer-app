@@ -17,7 +17,7 @@ const Icone = styled.div`
     border-radius: 50%;
     top: -1.8rem;
     padding: 0.7rem;
-    background-color: #e497c6;
+    background-color: #d67c85;
 `
 
 const Paragrafo = styled.p`
@@ -29,7 +29,7 @@ const Paragrafo = styled.p`
 `
 
 const Titulo = styled.h3`
-    color: #e497c6;
+    color: #d67c85;
 `
 
 // eslint-disable-next-line react/prop-types

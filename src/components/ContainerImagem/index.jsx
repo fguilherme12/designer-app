@@ -30,12 +30,12 @@ const FigCaption = styled.figcaption`
     color: white;
     box-sizing: border-box;
     padding: 20px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 
     @media(max-width: 1000px) {
 
         max-width: 13rem;
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
 
 `

@@ -2,77 +2,77 @@
     {
         "id":1,
         "path":"imagens/s/s1.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente e bla bla bla aaaaaaaaaaaaaaaaaaaaaaaa",
+        "titulo": "Design Personalizado + Henna",
         "alt": "Imagem procedimento Sobrancelhas"
     },
 
     {
         "id":2,
         "path":"imagens/s/s2.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente e bla bla bla",
+        "titulo": "Design Personalizado + Henna",
         "alt": "Test"
     },
 
     {
         "id":3,
         "path":"imagens/s/s3.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Design Personalizado + Henna",
         "alt": "Teste"
     },
 
     {
         "id":4,
         "path":"imagens/s/s4.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Henna Agindo",
         "alt": "Teste"
     },
 
     {
         "id":5,
         "path":"imagens/s/s5.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Design Personalizado",
         "alt": "Teste"
     },
 
     {
         "id":6,
         "path":"imagens/s/s6.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Design Personalizado + Henna",
         "alt": "Teste"
     },
 
     {
         "id":7,
         "path":"imagens/s/s7.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Henna Agindo",
         "alt": "Teste"
     },
 
     {
         "id":8,
         "path":"imagens/s/s8.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Antes e Depois Design personalizado",
         "alt": "Teste"
     },
 
     {
         "id":9,
         "path":"imagens/s/s9.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Design Personalizado + Henna",
         "alt": "Teste"
     },
 
     {
         "id":10,
         "path":"imagens/s/s10.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Design Personalizado",
         "alt": "Teste"
     },
 
     {
         "id":11,
         "path":"imagens/s/s11.jpeg",
-        "titulo": "Essa é uma técnica de Brow Lumination, feita especialmente",
+        "titulo": "Design Personalizado + Henna",
         "alt": "Teste"
     }
 ]
