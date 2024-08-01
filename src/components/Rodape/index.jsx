@@ -8,7 +8,7 @@ const Main = styled.main`
     background-color: #E6BFB8;
     width: 100%;
     bottom: 0;  
-    padding: 2rem 6rem;
+    padding: 2rem 4rem;
     box-sizing: border-box;
 
     @media(max-width: 1000px) {
@@ -21,6 +21,7 @@ const RodapeEstilizado = styled.footer`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    gap: 2rem;
 
     @media(max-width: 1000px) {
         flex-direction: column;

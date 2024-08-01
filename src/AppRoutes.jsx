@@ -6,11 +6,13 @@ import Lash from "./pages/Procedimentos/Lash"
 import Duvidas from "./pages/Duvidas"
 import QuemSomos from "./pages/QuemSomos"
 import PaginaBase from "./pages/PaginaBase"
+import ScroolToTop from "./components/ScroolToTop"
 
 function App() {
 
   return (
     <BrowserRouter>
+      <ScroolToTop />
       <Routes>
         <Route path="/" element={<PaginaBase/>}>
             <Route index element={<Inicio/>}></Route>
