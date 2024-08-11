@@ -22,9 +22,13 @@ const Container = styled.div`
 
 const BotaoFechar = styled(IoCloseCircle)`
     position: absolute;
-    top: 9rem;
+    top: 1rem;
     right: 1rem;
     cursor: pointer;
+
+    @media(min-width: 1000px) {
+        right: 37rem;
+    }
 `
 
 

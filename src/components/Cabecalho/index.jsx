@@ -22,6 +22,14 @@ const Logo = styled.img`
     @media(max-width: 1000px) {
         width: 9rem;
     }
+    
+    @media(max-width: 750px) {
+        position: ${({ isOpen }) => (isOpen ? 'fixed' : 'absolute')};
+        z-index: 1001;
+        top: 1.3rem;
+
+    }
+
 `
 
 const NavEstilizada = styled.nav`
@@ -39,21 +47,26 @@ const NavEstilizada = styled.nav`
 
     @media(max-width: 750px) {
         display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+        width: 100%;
+        min-height: 100vh;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        align-items: left;
         list-style: none;
         gap: 1.5rem;
-        padding: 1.6rem;
+        padding: 10rem 8rem 2rem 3rem;
         font-size: 1rem;
         background-color: #5a1a20;;
         color: white;
-        position: absolute;
+        position: fixed;
         z-index: 1000;
-        top: 1rem;
+        top: 0;
         right: 1.1rem;
+        left: 0;
         border-radius: 8px;
+        margin: 0;
+        box-sizing: border-box;
         overflow: hidden;
+        
     };
     
 `
@@ -72,7 +85,7 @@ const Dropdown = styled.ul`
     z-index: 20;
 
     @media(max-width: 750px) {
-        align-items: center;
+        align-items: left;
         font-size: 1rem;
         padding: 0.8rem;
         gap: 1rem;
@@ -99,11 +112,11 @@ const Hamburger = styled.div`
 
 const BotaoFechar = styled(IoCloseCircle)`
     position: absolute;
-    top: 0.2rem;
-    right: 0.01rem;
+    top: 4.5rem;
+    right: 1rem;
     cursor: pointer;
 
-    @media(min-width: 750px) {
+    @media(min-width: 751px) {
         display: none;
     }
 `

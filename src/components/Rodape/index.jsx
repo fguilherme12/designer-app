@@ -114,6 +114,7 @@ const RodapeTexto = styled.div`
     @media(max-width: 1000px) {
         font-size: 0.8rem;
         position: relative;
+        padding: 0 0 2.5rem 0;
         bottom: 0;
     }
 `
