@@ -24,7 +24,7 @@ const Logo = styled.img`
     }
     
     @media(max-width: 750px) {
-        position: ${({ isOpen }) => (isOpen ? 'fixed' : 'absolute')};
+        position: ${({ menuMobile }) => (menuMobile ? 'fixed' : 'absolute')};
         z-index: 1001;
         top: 1.3rem;
 
@@ -46,7 +46,7 @@ const NavEstilizada = styled.nav`
     }
 
     @media(max-width: 750px) {
-        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+        display: ${({ menuMobile }) => (menuMobile ? 'flex' : 'none')};
         width: 100%;
         min-height: 100vh;
         flex-direction: column;
@@ -126,10 +126,10 @@ const BotaoFechar = styled(IoCloseCircle)`
 function Cabecalho() {
 
     const [openDropdown, setOpenDropdown] = useState(false)
-    const [isOpen, setIsOpen] = useState(false);
+    const [menuMobile, setMenuMobile] = useState(false);
 
     const toggleMenu = () => {
-      setIsOpen(!isOpen);
+        setMenuMobile(!menuMobile);
     };
 
     const toggleDropdown = () => {
@@ -138,12 +138,12 @@ function Cabecalho() {
 
     return (    
         <HeaderEstilizado>
-            <Link to={'/'}> <Logo src={logo} alt="Logo"/> </Link>
+            <Link to={'/'}> <Logo menuMobile={menuMobile} src={logo} alt="Logo"></Logo> </Link>
            
             <Hamburger >
-                <IoMenu size={'80px'} onClick={toggleMenu} isOpen={isOpen} cursor={'pointer'} color='white'/>
+                <IoMenu size={'80px'} onClick={toggleMenu} menuMobile={menuMobile} cursor={'pointer'} color='white'/>
              </Hamburger>
-                <NavEstilizada isOpen={isOpen}>
+                <NavEstilizada menuMobile={menuMobile}>
                     <LinkEstilizado to={'/'} onClick={toggleMenu}> Inicio </LinkEstilizado>
                     <LinkEstilizado to={'/quem-somos'} onClick={toggleMenu}>Quem Somos</LinkEstilizado>
                     <LinkEstilizado to={'/duvidas'} onClick={toggleMenu}>Dúvidas </LinkEstilizado>
@@ -154,7 +154,7 @@ function Cabecalho() {
                             <LinkEstilizado to={'brow'} onClick={toggleMenu}>Brow Lamination </LinkEstilizado>
                         </Dropdown>}   
                     </LinkEstilizado>
-                    {isOpen && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
+                    {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
                 </NavEstilizada>
 
         </HeaderEstilizado>
