@@ -155,6 +155,7 @@ function Cabecalho() {
                         </Dropdown>}   
                     </LinkEstilizado>
                     {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
+                    
                 </NavEstilizada>
 
         </HeaderEstilizado>
