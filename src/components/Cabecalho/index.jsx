@@ -24,7 +24,7 @@ const Logo = styled.img`
     }
     
     @media(max-width: 750px) {
-        position: ${( props ) => (props.menu ? 'fixed' : 'absolute')};
+        position: ${( props ) => (props.menuMobile ? 'fixed' : 'absolute')};
         z-index: 1001;
         top: 1.3rem;
 
@@ -46,7 +46,7 @@ const NavEstilizada = styled.nav`
     }
 
     @media(max-width: 750px) {
-        display: ${( props ) => (props.menu ? 'flex' : 'none')};
+        display: ${( props ) => (props.menuMobile ? 'flex' : 'none')};
         width: 100%;
         min-height: 100vh;
         flex-direction: column;
@@ -138,10 +138,10 @@ function Cabecalho() {
 
     return (    
         <HeaderEstilizado>
-            <Link to={'/'}> <Logo menu={menuMobile} src={logo} alt="Logo"></Logo> </Link>
+            <Link to={'/'}> <Logo menuMobile={menuMobile} src={logo} alt="Logo"></Logo> </Link>
            
             <Hamburger >
-                <IoMenu size={'80px'} onClick={toggleMenu} menu={menuMobile} cursor={'pointer'} color='white'/>
+                <IoMenu size={'80px'} onClick={toggleMenu} menuMobile={menuMobile} cursor={'pointer'} color='white'/>
              </Hamburger>
                 <NavEstilizada menuMobile={menuMobile}>
                     <LinkEstilizado to={'/'} onClick={toggleMenu}> Inicio </LinkEstilizado>
@@ -155,7 +155,6 @@ function Cabecalho() {
                         </Dropdown>}   
                     </LinkEstilizado>
                     {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
-                    
                 </NavEstilizada>
 
         </HeaderEstilizado>
