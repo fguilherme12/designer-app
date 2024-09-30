@@ -7,6 +7,8 @@ import Duvidas from "./pages/Duvidas"
 import QuemSomos from "./pages/QuemSomos"
 import PaginaBase from "./pages/PaginaBase"
 import ScroolToTop from "./components/ScroolToTop"
+import FormularioLogin from "./pages/FormularioLogin"
+import FormularioCadastro from "./pages/FormularioCadastro"
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
             <Route path="/lash" element={<Lash/>}></Route>
             <Route path="/duvidas" element={<Duvidas/>}></Route>
             <Route path="/quem-somos" element={<QuemSomos/>}> </Route>
+            <Route path="/login" element={<FormularioLogin />}> </Route>
+            <Route path="/cadastro" element={<FormularioCadastro />}></Route>
             <Route path="*" element={<h1>Erro 404</h1>}></Route>
         </Route>
       </Routes>

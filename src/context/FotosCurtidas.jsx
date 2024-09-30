@@ -30,6 +30,7 @@ export function useCurtidasContext() {
             return setCurtidas(listaCurtidas)
         }
 
+        
         listaCurtidas = curtidas.filter((curtiu) => curtiu.id !== novaCurtida.id);
         return setCurtidas(listaCurtidas)
     }

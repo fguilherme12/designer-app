@@ -2,9 +2,11 @@ import styled from "styled-components";
 import logo from "/imagens/logo.png"
 import LinkEstilizado from "../LinkEstilizado";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { IoMenu, IoCloseCircle } from "react-icons/io5";
+import { FaRegUserCircle } from "react-icons/fa";
+
 
 const HeaderEstilizado = styled.header`
     display: flex;
@@ -121,12 +123,19 @@ const BotaoFechar = styled(IoCloseCircle)`
     }
 `
 
-
-
 function Cabecalho() {
 
+    
     const [openDropdown, setOpenDropdown] = useState(false)
     const [menuMobile, setMenuMobile] = useState(false);
+    const [userLogged, setUserLogged] = useState(false)
+    
+    useEffect(() => {
+        const token = sessionStorage.getItem('token')
+        if(token) {
+            setUserLogged(true)
+        }
+    },[userLogged])
 
     const toggleMenu = () => {
         setMenuMobile(!menuMobile);
@@ -135,6 +144,7 @@ function Cabecalho() {
     const toggleDropdown = () => {
         setOpenDropdown(!openDropdown)
     };
+
 
     return (    
         <HeaderEstilizado>
@@ -155,7 +165,14 @@ function Cabecalho() {
                         </Dropdown>}   
                     </LinkEstilizado>
                     {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
+            
+                    {!userLogged && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Faça Login ou Cadastre-se </LinkEstilizado>}
+
+                    {userLogged && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Olá </LinkEstilizado>}
+
                 </NavEstilizada>
+                
+                
 
         </HeaderEstilizado>
     )
