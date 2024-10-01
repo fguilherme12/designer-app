@@ -1,4 +1,9 @@
+import { ReactElement } from "react";
 import styled from "styled-components";
+
+interface TituloProps {
+    children: ReactElement | string;
+}
 
 
 const Texto = styled.h1`
@@ -13,9 +18,10 @@ const Texto = styled.h1`
     }
 `
 
-// eslint-disable-next-line react/prop-types
-export default function Titulo({children}) {
+const Titulo = ({children}: TituloProps) => {
     return (
         <Texto>{children}</Texto>
     )
 }
+
+export default Titulo;

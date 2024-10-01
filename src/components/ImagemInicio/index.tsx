@@ -36,11 +36,17 @@ const ImagemEstilizada = styled.img`
     };
 `
 
-// eslint-disable-next-line react/prop-types
-function Imagem({imagem, titulo, to}) {
+interface ImagemProps {
+    path: string;
+    titulo: string;
+    to: string;
+    alt?: string,
+}
+
+function Imagem({path, titulo, to, alt} : ImagemProps) {
     return (
         <Figure>
-            <ImagemEstilizada src={imagem} />
+            <ImagemEstilizada src={path} alt={alt} />
             <Figcaption>
                 {titulo}
                 <Link to={to}><IoEnter size={'2rem'} color="white" /></Link>

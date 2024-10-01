@@ -33,7 +33,7 @@ const FormularioLogin = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const onSubmitForm = (evento) => {
+    const onSubmitForm = (evento : React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         const user = {
             email,

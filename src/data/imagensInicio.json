@@ -1,0 +1,25 @@
+ [
+    {
+        "id":1,
+        "path":"imagens/sobranInicio.jpeg",
+        "titulo" : "Sobrancelhas",
+        "to": "/sobrancelhas",
+        "alt": "Imagem procedimento Sobrancelhas"
+    },
+
+    {
+        "id":2,
+        "path":"imagens/browInicio.jpg",
+        "titulo": "Brow Lamination",
+        "to": "/brow",
+        "alt": "Teste"
+    },
+
+    {
+        "id":3,
+        "path":"imagens/lashInicio.jpeg",
+        "titulo": "Lash Lifting",
+        "to": "/lash",
+        "alt": "Teste"
+    }
+]

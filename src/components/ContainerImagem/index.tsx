@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
@@ -6,6 +5,12 @@ import { FaExpandAlt} from "react-icons/fa";
 import { useCurtidasContext } from "../../context/FotosCurtidas";
 import { useFotoExpandida } from "../../context/FotoExpandida";
 
+export interface ContainerImagemProps { 
+    id: number,
+    titulo: string,
+    path: string,
+    alt?: string,
+}
 
 const ImagemEstilizada = styled.img`
     width: 17rem;
@@ -18,7 +23,6 @@ const ImagemEstilizada = styled.img`
         height: 18rem;
     }
 `
-
 
 const FigCaption = styled.figcaption`
     display: flex;
@@ -48,10 +52,10 @@ const Icones = styled.div`
     cursor: pointer;
 `
 
-function ContainerImagem({id, titulo, path, alt}) {
+function ContainerImagem({id, titulo, path, alt} : ContainerImagemProps) {
 
     const {curtidas,jaCurtiu} = useCurtidasContext();
-    const ehFavorito = curtidas.some((curtida) => curtida.id === id);
+    const ehFavorito = curtidas.some((curtida: { id: number; }) => curtida.id === id);
     const {expandirFoto} = useFotoExpandida();
 
     return (

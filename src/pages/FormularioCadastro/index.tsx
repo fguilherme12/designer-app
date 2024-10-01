@@ -30,7 +30,7 @@ const FormularioCadastro = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const onSubmitForm = (evento) => {
+    const onSubmitForm = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         const user = {
             name,

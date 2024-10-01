@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -32,8 +33,13 @@ const Titulo = styled.h3`
     color: #d67c85;
 `
 
-// eslint-disable-next-line react/prop-types
-function Card({icone, titulo, texto}) {
+interface CardProps {
+    icone: ReactElement,
+    titulo: string,
+    texto: string,
+}
+
+function Card({icone, titulo, texto} : CardProps) {
     return (
         <Container>
             <Icone>{icone}</Icone>

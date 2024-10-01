@@ -1,33 +1,8 @@
 import styled from "styled-components";
-import Imagem from "./Imagem";
+import Imagem from "../../components/ImagemInicio";
 import Banner from "../../components/Banner/index";
 import Titulo from "../../components/Titulo";
-
-const fotos = [
-    {
-        id:1,
-        path:'imagens/sobranInicio.jpeg',
-        titulo: 'Sobrancelhas',
-        to: '/sobrancelhas',
-        alt: 'Imagem procedimento Sobrancelhas'
-    },
-
-    {
-        id:2,
-        path:'imagens/browInicio.jpg',
-        titulo: 'Brow Lamination',
-        to: '/brow',
-        alt: 'Teste'
-    },
-
-    {
-        id:3,
-        path:'imagens/lashInicio.jpeg',
-        titulo: 'Lash Lifting',
-        to: '/lash',
-        alt: 'Teste,'
-    }
-]
+import fotos from "../../data/imagensInicio.json";
 
 const MainContainer = styled.div`
     display: flex;
@@ -51,7 +26,7 @@ function Inicio() {
             <Banner/>
             <Titulo> Conheça Nossos procedimentos </Titulo>
             <MainContainer>
-                {fotos.map((foto) => <Imagem key={foto.id} imagem={foto.path} to={foto.to} titulo={foto.titulo} alt={foto.alt}/>)}
+                {fotos.map((foto) => <Imagem key={foto.id} path={foto.path} to={foto.to} titulo={foto.titulo} alt={foto.alt}/>)}
             </MainContainer>
         </>
     )

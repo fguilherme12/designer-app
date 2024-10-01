@@ -17,7 +17,7 @@ const HeaderEstilizado = styled.header`
     height: 70px;
 `
 
-const Logo = styled.img`
+const Logo = styled.img<{menuMobile? : boolean}>`
     width: 12rem;
     cursor: pointer;
 
@@ -34,7 +34,7 @@ const Logo = styled.img`
 
 `
 
-const NavEstilizada = styled.nav`
+const NavEstilizada = styled.nav<{menuMobile? : boolean}>`
     display: flex;
     padding: 1em 2em;
     font-size: 1rem;
@@ -128,10 +128,14 @@ function Cabecalho() {
     
     const [openDropdown, setOpenDropdown] = useState(false)
     const [menuMobile, setMenuMobile] = useState(false);
-    const [userLogged, setUserLogged] = useState(false)
+
+
+    const token = sessionStorage.getItem('token')
+    const [userLogged, setUserLogged] = useState<boolean>(token != null)
+
+    console.log(userLogged)
     
     useEffect(() => {
-        const token = sessionStorage.getItem('token')
         if(token) {
             setUserLogged(true)
         }
@@ -151,13 +155,13 @@ function Cabecalho() {
             <Link to={'/'}> <Logo menuMobile={menuMobile} src={logo} alt="Logo"></Logo> </Link>
            
             <Hamburger >
-                <IoMenu size={'80px'} onClick={toggleMenu} menuMobile={menuMobile} cursor={'pointer'} color='white'/>
+                <IoMenu size={'80px'} onClick={toggleMenu} cursor={'pointer'} color='white'/>
              </Hamburger>
                 <NavEstilizada menuMobile={menuMobile}>
                     <LinkEstilizado to={'/'} onClick={toggleMenu}> Inicio </LinkEstilizado>
                     <LinkEstilizado to={'/quem-somos'} onClick={toggleMenu}>Quem Somos</LinkEstilizado>
                     <LinkEstilizado to={'/duvidas'} onClick={toggleMenu}>Dúvidas </LinkEstilizado>
-                    <LinkEstilizado onClick={toggleDropdown}> Procedimentos <TiArrowSortedDown />
+                    <LinkEstilizado to={''} onClick={toggleDropdown}> Procedimentos <TiArrowSortedDown />
                         {openDropdown && <Dropdown onMouseLeave={toggleDropdown}>
                             <LinkEstilizado to={'sobrancelhas'} onClick={toggleMenu}>Sobrancelhas</LinkEstilizado>
                             <LinkEstilizado to={'lash'} onClick={toggleMenu}>Lash Lifting</LinkEstilizado>
@@ -166,9 +170,8 @@ function Cabecalho() {
                     </LinkEstilizado>
                     {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
             
-                    {!userLogged && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Faça Login ou Cadastre-se </LinkEstilizado>}
-
-                    {userLogged && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Olá </LinkEstilizado>}
+                    {!userLogged && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Faça Login ou Cadastre-se </LinkEstilizado> }
+                    {userLogged && <LinkEstilizado to={'/cadastro'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} /> Olá </LinkEstilizado> }
 
                 </NavEstilizada>
                 

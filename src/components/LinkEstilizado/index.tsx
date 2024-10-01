@@ -1,9 +1,14 @@
+import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+interface LinkEstilizadoProps {
+    to: string,
+    children: string | ReactNode,
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>,
+}
 
 
-// eslint-disable-next-line react/prop-types
-function LinkEstilizado({to, children, onClick}) {
+function LinkEstilizado({to, children, onClick}: LinkEstilizadoProps) {
     
     const localizacao = useLocation();
 
