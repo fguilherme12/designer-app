@@ -2,10 +2,11 @@ import styled from "styled-components";
 import logo from "/imagens/logo.png"
 import LinkEstilizado from "../LinkEstilizado";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { IoMenu, IoCloseCircle } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
+import { useAutenticacao } from "../../context/Autenticacao";
 
 
 const HeaderEstilizado = styled.header`
@@ -128,19 +129,10 @@ function Cabecalho() {
     
     const [openDropdown, setOpenDropdown] = useState(false)
     const [menuMobile, setMenuMobile] = useState(false);
-
-
-    const token = sessionStorage.getItem('token')
-    const [userLogged, setUserLogged] = useState<boolean>(token != null)
-
-    console.log(userLogged)
+    const {signOut, tokenExpired} = useAutenticacao();
+    const token = localStorage.getItem('token')
+    const userName = localStorage.getItem('name')
     
-    useEffect(() => {
-        if(token) {
-            setUserLogged(true)
-        }
-    },[userLogged])
-
     const toggleMenu = () => {
         setMenuMobile(!menuMobile);
     };
@@ -148,6 +140,9 @@ function Cabecalho() {
     const toggleDropdown = () => {
         setOpenDropdown(!openDropdown)
     };
+
+    console.log(tokenExpired)
+
 
 
     return (    
@@ -170,9 +165,13 @@ function Cabecalho() {
                     </LinkEstilizado>
                     {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
             
-                    {!userLogged && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Faça Login ou Cadastre-se </LinkEstilizado> }
-                    {userLogged && <LinkEstilizado to={'/cadastro'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} /> Olá </LinkEstilizado> }
-
+                    {!token && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Faça Login ou Cadastre-se </LinkEstilizado> }
+                    {token && 
+                        <div>
+                            <LinkEstilizado to={'/cadastro'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} /> Bem vindo {userName} </LinkEstilizado> 
+                            <button onClick={() => signOut()}>Logout</button>
+                        </div>
+                    }
                 </NavEstilizada>
                 
                 

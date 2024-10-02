@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
+import { useAutenticacao } from "../../context/Autenticacao";
 
 
 const MainContainer = styled.div`
@@ -29,6 +30,7 @@ const FormularioCadastro = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {registerUser} = useAutenticacao()
 
     const onSubmitForm = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
@@ -37,16 +39,8 @@ const FormularioCadastro = () => {
             email,
             password
         }
-        axios.post('http://localhost:3000/user', user)
-            .then(() => {
-                alert('Usuario Cadastrado com sucesso')
-                setEmail(''),
-                setName(''),
-                setPassword('')
-            }).catch((erro) =>
-                alert(`Erro:  ${erro.response.data.message}`)
-            )
-
+        
+        registerUser(user)
     }
 
     return (

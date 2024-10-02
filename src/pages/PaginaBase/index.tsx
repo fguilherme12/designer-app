@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom"
 import CurtidasProvider from "../../context/FotosCurtidas"
 import { ExpandidaProvider } from "../../context/FotoExpandida"
 import FotoExpandida from "../../components/ContainerImagem/FotoExpandida"
+import { AutenticacaoProvider } from "../../context/Autenticacao"
 
 const Container = styled.div`
   width: 100%;
@@ -15,6 +16,7 @@ const Container = styled.div`
 function PaginaBase() {
     return ( 
          <Container>
+            <AutenticacaoProvider>
             <EstiloGlobal/>
             <Cabecalho/>
             <ExpandidaProvider>
@@ -24,6 +26,7 @@ function PaginaBase() {
             </CurtidasProvider>      
             </ExpandidaProvider>
             <Rodape/>
+            </AutenticacaoProvider>
          </Container>
     )
 }

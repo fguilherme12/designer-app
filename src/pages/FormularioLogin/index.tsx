@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 import LinkEstilizado from "../../components/LinkEstilizado";
-import { useNavigate } from "react-router-dom";
+import { useAutenticacao } from "../../context/Autenticacao";
 
 
 const MainContainer = styled.div`
@@ -31,25 +30,16 @@ const FormularioLogin = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-
+    const {signIn} = useAutenticacao();
+    
     const onSubmitForm = (evento : React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         const user = {
             email,
-            password
+            password,
         }
-        axios.post('http://localhost:3000/login', user)
-            .then((resposta) => {
-                sessionStorage.setItem('token', resposta.data.access_token)
-                alert('Login Efetuado com sucesso')
-                setEmail(''),
-                setPassword(''),
-                navigate('/')
-            }).catch((erro) =>
-                alert(`Erro:  ${erro.response.data.message}`)
-            )
-        
+
+        signIn(user)
     }
 
     return (
@@ -65,7 +55,8 @@ const FormularioLogin = () => {
                 <label>Senha</label>
                 <input type="password" placeholder="Insira sua senha" onChange={event => setPassword(event.target.value)} required></input>
             </div>
-            <button type="submit">Login</button>
+
+            <button type="submit" >Login</button>
             </FormularioEstilizado>
 
             <LinkEstilizado to={'/cadastro'}> Cadastro</LinkEstilizado>
