@@ -30,7 +30,7 @@ const FormularioCadastro = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {registerUser} = useAutenticacao()
+    const {registerUser, errorMessageRegister} = useAutenticacao()
 
     const onSubmitForm = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
@@ -60,7 +60,10 @@ const FormularioCadastro = () => {
                 <label>Senha</label>
                 <input type="password" placeholder="Insira sua senha aqui" onChange={event => setPassword(event.target.value)} required></input>
             </div>
+
             <button type="submit">Cadastrar</button>
+
+            {errorMessageRegister && <h6>{errorMessageRegister} .</h6>}
         </FormularioEstilizado>
         </MainContainer>
         

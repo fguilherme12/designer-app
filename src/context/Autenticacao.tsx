@@ -1,13 +1,15 @@
 import axios from "axios";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
 interface AutenticacaoContextType {
     registerUser: (user: Usuario) => void;
     signOut: () => void;
-    tokenExpired: () => boolean | undefined;
+    tokenExpired: () => void;
     signIn: (user : Usuario) => void;
-    userLogged: string | null;
+    userLogged: boolean | null;
+    errorMessageLogin: string | null;
+    errorMessageRegister: string | null;
 }
 
 interface AutenticacaoProviderProps {
@@ -34,24 +36,30 @@ AutenticacaoContext.displayName = 'Autenticacao';
 
 const useAutenticacao = () => {
     const context = useContext(AutenticacaoContext)
-
+    
     if (!context) {
         throw new Error('useAutenticacao deve ser usado dentro de um AutenticacaoProvider');
     }
+
     return context;
 } 
 
 
 function AutenticacaoProvider({children} : AutenticacaoProviderProps) {
-    const [userLogged,setUserLogged] = useState<string | null>('')
+    const token = localStorage.getItem('token')
+    const [userLogged,setUserLogged] = useState<boolean | null>(token != null)
+    const [errorMessageRegister, setErrorMessageRegister] = useState<string | null>(null)
+    const [errorMessageLogin, setErrorMessageLogin] = useState<string | null>(null)
+
 
     const registerUser = async ({name,email,password}: Usuario) => {
         const response = await axios.post('http://localhost:3000/user', {name,email,password})
         .then(() => {
             alert('Usuario Cadastrado com sucesso')
+            setErrorMessageRegister(null)
             window.location.href = '/login';
         }).catch((erro) =>
-            alert(`Erro:  ${erro.response.data.message}`)
+            setErrorMessageRegister(erro.response.data.message)
         )
 
     }
@@ -61,10 +69,12 @@ function AutenticacaoProvider({children} : AutenticacaoProviderProps) {
         then ((resposta) => {
             localStorage.setItem('token', resposta.data.access_token) 
             getUserName()
+            setUserLogged(true)
+            setErrorMessageLogin(null)
             alert(`Login Efetuado com sucesso, seja bem vindo ${localStorage.getItem('name')}`) 
             window.location.href = '/';
         }).catch ((erro)  => {
-            alert(`Erro:  ${erro.response.data.message}`)
+            setErrorMessageLogin(erro.response.data.message)
         })
     };
 
@@ -74,11 +84,8 @@ function AutenticacaoProvider({children} : AutenticacaoProviderProps) {
         if (token) {
         const decoded : DecodedToken = jwtDecode(token)
         const userName = localStorage.setItem('name',decoded.name)
-         setUserLogged(decoded.name)
          return userName
-        }
-    
-        return '';
+        }        
     };
 
     const tokenExpired = () => {
@@ -91,22 +98,18 @@ function AutenticacaoProvider({children} : AutenticacaoProviderProps) {
 
             if(timestampAtual > exp) {
                 signOut()
-                return true
             }
-        } else {
-            
-            return false
         }
-
-
     }
     
     const signOut = () => {
         localStorage.clear()
         setUserLogged(null)
     }
+
+    
     return (
-        <AutenticacaoContext.Provider value={{registerUser,signOut, signIn, userLogged, tokenExpired}}>
+        <AutenticacaoContext.Provider value={{registerUser,signOut, signIn, userLogged, tokenExpired,errorMessageLogin, errorMessageRegister}}>
             {children}
         </AutenticacaoContext.Provider>
     )

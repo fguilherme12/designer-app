@@ -30,7 +30,7 @@ const FormularioLogin = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {signIn} = useAutenticacao();
+    const {signIn, errorMessageLogin} = useAutenticacao();
     
     const onSubmitForm = (evento : React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
@@ -57,6 +57,9 @@ const FormularioLogin = () => {
             </div>
 
             <button type="submit" >Login</button>
+
+            {errorMessageLogin && <h6>{errorMessageLogin} .</h6>}
+
             </FormularioEstilizado>
 
             <LinkEstilizado to={'/cadastro'}> Cadastro</LinkEstilizado>
