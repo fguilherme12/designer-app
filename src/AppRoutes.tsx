@@ -9,6 +9,9 @@ import PaginaBase from "./pages/PaginaBase"
 import ScroolToTop from "./components/ScroolToTop"
 import FormularioLogin from "./pages/FormularioLogin"
 import FormularioCadastro from "./pages/FormularioCadastro"
+import MinhaConta from "./pages/PrivateRoutes/MinhaConta"
+import PrivateRoute from "./pages/PrivateRoutes"
+import Ficha from "./pages/PrivateRoutes/Ficha"
 
 function App() {
 
@@ -25,6 +28,12 @@ function App() {
             <Route path="/quem-somos" element={<QuemSomos/>}> </Route>
             <Route path="/login" element={<FormularioLogin />}> </Route>
             <Route path="/cadastro" element={<FormularioCadastro />}></Route>
+            
+            <Route path="/minhaConta" element={<PrivateRoute />}>
+              <Route index element={<MinhaConta />}></Route>
+              <Route path="ficha" element={<Ficha />} />
+            </Route>
+            
             <Route path="*" element={<h1>Erro 404</h1>}></Route>
         </Route>
       </Routes>
