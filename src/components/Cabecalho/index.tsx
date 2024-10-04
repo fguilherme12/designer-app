@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { IoMenu, IoCloseCircle } from "react-icons/io5";
-import { FaRegUserCircle } from "react-icons/fa";
-import { useAutenticacao } from "../../context/Autenticacao";
+import AreaLogin from "../AreaLogin";
 
 
 const HeaderEstilizado = styled.header`
@@ -124,15 +123,13 @@ const BotaoFechar = styled(IoCloseCircle)`
     }
 `
 
+
 function Cabecalho() {
 
     
     const [openDropdown, setOpenDropdown] = useState(false)
     const [menuMobile, setMenuMobile] = useState(false);
-    const {signOut, tokenExpired} = useAutenticacao();
-    const token = localStorage.getItem('token')
-    const userName = localStorage.getItem('name')
-    
+
     const toggleMenu = () => {
         setMenuMobile(!menuMobile);
     };
@@ -140,10 +137,6 @@ function Cabecalho() {
     const toggleDropdown = () => {
         setOpenDropdown(!openDropdown)
     };
-
-    console.log(tokenExpired)
-
-
 
     return (    
         <HeaderEstilizado>
@@ -164,14 +157,9 @@ function Cabecalho() {
                         </Dropdown>}   
                     </LinkEstilizado>
                     {menuMobile && <BotaoFechar size={'25px'} onClick={toggleMenu} />}
-            
-                    {!token && <LinkEstilizado to={'/login'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} />Faça Login ou Cadastre-se </LinkEstilizado> }
-                    {token && 
-                        <div>
-                            <LinkEstilizado to={'/cadastro'}><FaRegUserCircle  color={'white'} size={'20px'} cursor={'pointer'} /> Bem vindo {userName} </LinkEstilizado> 
-                            <button onClick={() => signOut()}>Logout</button>
-                        </div>
-                    }
+
+                    <AreaLogin />
+
                 </NavEstilizada>
                 
                 
