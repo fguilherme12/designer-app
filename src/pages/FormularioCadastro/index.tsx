@@ -4,27 +4,53 @@ import styled from "styled-components";
 import { useAutenticacao } from "../../context/Autenticacao";
 
 
-const MainContainer = styled.div`
-    display: flex;
-    box-sizing: border-box;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #fff;
-    width: 100%;
-    padding: 1em;
+const FormContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `
 
-const FormularioEstilizado = styled.form`
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 2rem;
-    border: 1px solid #000000;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 4rem ;
-    font-size: 1rem;
+const FormTitle = styled.h2`
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 `
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`
+
+const StyledInput = styled.input`
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+`
+
+const StyledButton = styled.button`
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
+`
+
+
 const FormularioCadastro = () => {
 
     const [name, setName] = useState('');
@@ -44,28 +70,36 @@ const FormularioCadastro = () => {
     }
 
     return (
-        <MainContainer>
-            <FormularioEstilizado onSubmit={onSubmitForm}> 
-            <div>
-                <label>Nome</label>
-                <input type="text" placeholder="Insira seu nome aqui" onChange={event => setName(event.target.value)} required></input>
-            </div>
+        <FormContainer>
+            <FormTitle> Cadastro</FormTitle>
+            <StyledForm onSubmit={onSubmitForm}> 
+            <StyledInput
+                type="text"
+                name="nome"
+                placeholder="Nome"
+                onChange={event => setName(event.target.value)} 
+                required
+            />
+            <StyledInput
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={event => setEmail(event.target.value)} 
+                required
+            />
 
-            <div>
-                <label>Email</label>
-                <input type="email" placeholder="Insira seu email aqui" onChange={event => setEmail(event.target.value)} required></input>
-            </div>
-
-            <div>
-                <label>Senha</label>
-                <input type="password" placeholder="Insira sua senha aqui" onChange={event => setPassword(event.target.value)} required></input>
-            </div>
-
-            <button type="submit">Cadastrar</button>
+            <StyledInput
+                type="password"
+                name="senha"
+                placeholder="Senha"
+                onChange={event => setPassword(event.target.value)} 
+                required
+            />
+            <StyledButton type="submit">Cadastrar</StyledButton>
 
             {errorMessageRegister && <h6>{errorMessageRegister} .</h6>}
-        </FormularioEstilizado>
-        </MainContainer>
+        </StyledForm>
+        </FormContainer>
         
     )
 }
