@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 import { useAutenticacao } from "../../context/Autenticacao";
+import LinkEstilizado from "../../components/LinkEstilizado";
+import { Link } from "react-router-dom";
 
 
 const FormContainer = styled.div`
@@ -50,6 +52,15 @@ const StyledButton = styled.button`
   }
 `
 
+const TextoMensagem = styled.h5`
+  color: red;
+`
+
+const StyledLink = styled(Link)`
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+`
 
 const FormularioCadastro = () => {
 
@@ -96,8 +107,9 @@ const FormularioCadastro = () => {
                 required
             />
             <StyledButton type="submit">Cadastrar</StyledButton>
+            <StyledLink to="/login"> Voltar para o Login</StyledLink>
 
-            {errorMessageRegister && <h6>{errorMessageRegister} .</h6>}
+            {errorMessageRegister && <TextoMensagem>{errorMessageRegister}.</TextoMensagem>}
         </StyledForm>
         </FormContainer>
         

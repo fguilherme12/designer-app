@@ -49,19 +49,38 @@ const StyledButton = styled.button`
 
 const Ficha = () => {
 
+  const nome = localStorage.getItem('name');
+
   return (
     <FormContainer>
       <FormTitle>Ficha Anamnese</FormTitle>
       <StyledForm>
+        <h3>Nome : {nome}</h3>
+        <label> Endereço</label>
         <StyledInput
           type="text"
-          name="nome"
-          placeholder="Nome"
+          name="endereco"
         />
+        <label> Data de Nascimento</label>
         <StyledInput
-          type="email"
-          name="email"
-          placeholder="E-mail"
+          type="date"
+          name="dataNascimento"
+        /> 
+
+        <label> Telefone</label>
+        <StyledInput
+          type="tel"
+          name="telefone"
+        /> 
+        <label> Cidade</label>
+        <StyledInput
+          type="text"
+          name="endereco"
+        />
+        <label> UF</label>
+        <StyledInput
+          type="text"
+          name="endereco"
         />
         <StyledButton type="submit">Enviar</StyledButton>
       </StyledForm>

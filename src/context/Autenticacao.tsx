@@ -59,7 +59,7 @@ function AutenticacaoProvider({children} : AutenticacaoProviderProps) {
             setErrorMessageRegister(null)
             window.location.href = '/login';
         }).catch((erro) =>
-            setErrorMessageRegister(erro.response.data.message)
+            setErrorMessageRegister(erro.response.data.message[0])
         )
 
     }

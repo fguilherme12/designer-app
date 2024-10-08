@@ -1,21 +1,23 @@
 import { useState } from "react";
 import styled from "styled-components";
-import LinkEstilizado from "../../components/LinkEstilizado";
 import { useAutenticacao } from "../../context/Autenticacao";
+import { FaUserLock, FaUserPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 const FormContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  height: auto;
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 3rem;
   background-color: #f7f7f7;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `
 
-const FormTitle = styled.h2`
+const Title = styled.h2`
   text-align: center;
   color: #333;
   margin-bottom: 20px;
@@ -24,6 +26,11 @@ const FormTitle = styled.h2`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  
+  svg {
+    margin-left: 7rem;
+  }
 `
 
 const StyledInput = styled.input`
@@ -52,11 +59,29 @@ const StyledButton = styled.button`
   }
 `
 
+const TextoMensagem = styled.h5`
+  color: red;
+`
+
+const SecondContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    margin-left: 12rem;
+  }
+
+  h5 {
+    padding-bottom: 1rem;
+  }
+`
+
 const FormularioLogin = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const {signIn, errorMessageLogin} = useAutenticacao();
+    const navigate = useNavigate();
     
     const onSubmitForm = (evento : React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
@@ -72,7 +97,8 @@ const FormularioLogin = () => {
        
         <FormContainer>
             <StyledForm onSubmit={onSubmitForm}> 
-            <FormTitle> Já possui uma conta ? </FormTitle>
+            <FaUserLock size={'2rem'}/>
+            <Title> Já possui uma conta ? </Title>
                 <h6>Informe seus dados para acessa-la</h6>
                 <StyledInput
                     type="email"
@@ -90,11 +116,15 @@ const FormularioLogin = () => {
                 />
 
                 <StyledButton type="submit">Login</StyledButton>
+                {errorMessageLogin && <TextoMensagem>{errorMessageLogin}</TextoMensagem>}
             </StyledForm>
 
-            {errorMessageLogin && <h6>{errorMessageLogin} .</h6>}
-
-            <LinkEstilizado to={'/cadastro'}> Cadastro</LinkEstilizado>    
+            <SecondContainer>
+              <FaUserPlus size={'2rem'} />
+              <Title>Cliente Nova?</Title>
+              <h5>Clique no botão abaixo, informe seus dados e crie já sua conta.</h5>
+              <StyledButton onClick={() => navigate('/cadastro')}>Cadastre-se</StyledButton>
+            </SecondContainer>
         </FormContainer>
         
 
